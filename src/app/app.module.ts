@@ -3,12 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+// Todo lo que tiene que ver con TodoMVC APP
+import { TodoModule } from './todos/todo.module';
+import { FooterComponent } from './footer/footer.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    TodoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
