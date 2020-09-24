@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 // Todo lo que tiene que ver con TodoMVC APP
 import { TodoModule } from './todos/todo.module';
 import { FooterComponent } from './footer/footer.component';
+import { TodoReducer } from './todos/todo.reducer';
+
+// NGRX
+import { StoreModule } from '@ngrx/store';
+import { environment } from 'src/environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -14,7 +20,12 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    TodoModule
+    TodoModule,
+    StoreModule.forRoot({ todos: TodoReducer }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
